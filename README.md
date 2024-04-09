@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+#Frontend with React
+##Overview
+###My portfolio website showcases my work, skills, and contact information. It includes sections such as:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Home:** Introduction and brief overview.
+**About:** Information about me, my background, and interests.
+**Projects:** Showcase of my projects with descriptions and links.
+**Contact:** Contact form and links to my social profiles.
+####Technologies Used
+**Frontend:** React.js for building the user interface.
+**Styling:** CSS for custom styling.
+**Navigation:** React Router for handling navigation between pages.
+**Icons:** FontAwesome for icons.
+**Burger Menu:** Used react-burger-menu and hamburger-react for the responsive hamburger menu.
+**State Management:** Utilized React hooks such as useState and useEffect for managing state.
+**Deployment:** The website is deployed on localhost.
 
-## Available Scripts
+#Backend Server with Express
+##Overview
+###The backend server for my portfolio website handles form submissions and sends emails using Nodemailer. It includes features such as rate limiting, content security policy, and logging.
 
-In the project directory, you can run:
+####Technologies Used
 
-### `npm start`
+- **Framework:** Express.js for building the server.
+- **Email Handling:** Nodemailer for sending emails.
+- **Middleware:** Body-parser for parsing request bodies, cors for enabling Cross-Origin Resource Sharing, helmet for setting various HTTP headers for security, rate-limit for limiting request rates, and Winston for logging.
+- **Security:** Content Security Policy (CSP) to mitigate Cross-Site Scripting (XSS) attacks.
+- **Environment Variables:** Used dotenv to load environment variables.
+- **Logging:** Logtail for centralized logging.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+####Setup Instructions
+To set up the portfolio website locally, follow these steps:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Clone the repository:** git clone <https://github.com/OscarDavidMendoza/react-portfolio.git>
+**Navigate to the project directory:** cd <MY-PORTFOLIO-REACT> && <MY-PORTFOLIO-REACT/Client>
+**Install dependencies:** `$ npm install`
+**Create a .env file and add your email credentials and Logtail source token.**
+**Start the development server:** `$ npm run dev`
+Open your web browser and go to http://localhost:3001 to view the website. This will also start a server on [port:5001](http://localhost:5001.) for the email server (More details below).
 
-### `npm test`
+Remember to add your environment variables in a .env file for the server to function.
+Variables to add to your .env file
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- NODEMAILER_ENV_USER =<your email address>
+- NODEMAILER_ENV_PASS =<your email password>
+  - I recommend the use of an app password. You can use this [document] (https://support.google.com/mail/answer/185833?hl=en "document") as guidance.
+- LOGTAIL_SOURCE_TOKEN =<your logtail token from logtail.com> // This is used to log information of the email server use. Itt is logged in a created file named email.log and on logtail.com.
 
-### `npm run build`
+#####Endpoints
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- POST /send-email: Endpoint for handling form submissions. Expects a JSON payload with name, email, and message fields. Sends an email with the provided information.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#####Hosting
+In the future, we plan to host this on AWS detailing and documenting this process in a blog post.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#####Additional Notes
+**Responsiveness:** The website is designed to be responsive and work well on different screen sizes.
+**Continuous Improvement:** I'm continuously improving and updating the website to enhance its functionality and design.
+**Rate Limiting:** Limits requests to 5 requests within a 15-minute window to prevent abuse.
+**Content Security Policy (CSP):** Sets a strict CSP to mitigate XSS attacks by specifying allowed sources for scripts, images, and styles.
+**Logging:** Utilizes Winston and Logtail for centralized logging of server activities.
+**Error Handling:** Returns appropriate HTTP status codes and error messages for invalid requests or server errors.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Credits
+Author: Oscar Mendoza
+GitHub: https://github.com/OscarDavidMendoza
