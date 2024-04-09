@@ -14,8 +14,9 @@
 <p>**Burger Menu:** Used react-burger-menu and hamburger-react for the responsive hamburger menu.</p>
 <p>**State Management:** Utilized React hooks such as useState and useEffect for managing state.</p>
 <p>**Deployment:** The website is deployed on localhost.</p>
+<br/>
 
-<h1>Backend Server with Express</h1>
+<h1 align='center'>Backend Server with Express</h1>
 <h2>Overview</h2>
 <h3>The backend server for my portfolio website handles form submissions and sends emails using Nodemailer. It includes features such as rate limiting, content security policy, and logging.</h3>
 
@@ -28,7 +29,7 @@
 - **Environment Variables:** Used dotenv to load environment variables.
 - **Logging:** Logtail for centralized logging.
 
-<h4>Setup Instructions</h4>>
+<h4>Setup Instructions</h4>
 <p>To set up the portfolio website locally, follow these steps:</p>
 
 - **Clone the repository:** git clone <https://github.com/OscarDavidMendoza/react-portfolio.git>
@@ -60,7 +61,7 @@ In the future, we plan to host this on AWS detailing and documenting this proces
 - **Content Security Policy (CSP):** Sets a strict CSP to mitigate XSS attacks by specifying allowed sources for scripts, images, and styles.
 - **Logging:** Utilizes Winston and Logtail for centralized logging of server activities.
 - **Error Handling:** Returns appropriate HTTP status codes and error messages for invalid requests or server errors.
-
+<br/>
 <p>Credits</p>
 <p>Author: Oscar Mendoza</p>
 <p>GitHub: https://github.com/OscarDavidMendoza</p>
