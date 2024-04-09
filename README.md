@@ -2,18 +2,21 @@
 <h2>Overview</h2>
 <h3>My portfolio website showcases my work, skills, and contact information. It includes sections such as:</h3>
 
-**Home:** Introduction and brief overview.
-**About:** Information about me, my background, and interests.
-**Projects:** Showcase of my projects with descriptions and links.
-**Contact:** Contact form and links to my social profiles.
-Technologies Used<
-**Frontend:** React.js for building the user interface.
-**Styling:** CSS for custom styling.
-**Navigation:** React Router for handling navigation between pages.
-**Icons:** FontAwesome for icons.
-**Burger Menu:** Used react-burger-menu and hamburger-react for the responsive hamburger menu.
-**State Management:** Utilized React hooks such as useState and useEffect for managing state.
-**Deployment:** The website is deployed on localhost.
+- **Home:** Introduction and brief overview.
+- **About:** Information about me, my background, and interests.
+- **Projects:** Showcase of my projects with descriptions and links.
+- **Contact:** Contact form and links to my social profiles.
+
+<h4>Technologies Used</h4>
+
+- **Frontend:** React.js for building the user interface.
+- **Styling:** CSS for custom styling.
+- **Navigation:** React Router for handling navigation between pages.
+- **Icons:** FontAwesome for icons.
+- **Burger Menu:** Used react-burger-menu and hamburger-react for the responsive hamburger menu.
+- **State Management:** Utilized React hooks such as useState and useEffect for managing state.
+- **Deployment:** The website is deployed on localhost.
+
 <br/>
 
 <h1 align='center'>Backend Server with Express</h1>
