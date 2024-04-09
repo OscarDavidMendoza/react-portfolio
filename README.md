@@ -2,18 +2,18 @@
 <h2>Overview</h2>
 <h3>My portfolio website showcases my work, skills, and contact information. It includes sections such as:</h3>
 
-<p>**Home:** Introduction and brief overview.</p>
-<p>**About:** Information about me, my background, and interests.</p>
-<p>**Projects:** Showcase of my projects with descriptions and links.</p>
-<p>**Contact:** Contact form and links to my social profiles.</p>
-<h4>Technologies Used</h4>
-<p>**Frontend:** React.js for building the user interface.</p>
-<p>**Styling:** CSS for custom styling.</p>
-<p>**Navigation:** React Router for handling navigation between pages.</p>
-<p>**Icons:** FontAwesome for icons.</p>
-<p>**Burger Menu:** Used react-burger-menu and hamburger-react for the responsive hamburger menu.</p>
-<p>**State Management:** Utilized React hooks such as useState and useEffect for managing state.</p>
-<p>**Deployment:** The website is deployed on localhost.</p>
+**Home:** Introduction and brief overview.
+**About:** Information about me, my background, and interests.
+**Projects:** Showcase of my projects with descriptions and links.
+**Contact:** Contact form and links to my social profiles.
+Technologies Used<
+**Frontend:** React.js for building the user interface.
+**Styling:** CSS for custom styling.
+**Navigation:** React Router for handling navigation between pages.
+**Icons:** FontAwesome for icons.
+**Burger Menu:** Used react-burger-menu and hamburger-react for the responsive hamburger menu.
+**State Management:** Utilized React hooks such as useState and useEffect for managing state.
+**Deployment:** The website is deployed on localhost.
 <br/>
 
 <h1 align='center'>Backend Server with Express</h1>
@@ -33,7 +33,7 @@
 <p>To set up the portfolio website locally, follow these steps:</p>
 
 - **Clone the repository:** git clone <https://github.com/OscarDavidMendoza/react-portfolio.git>
-- **Navigate to the project directory:** cd <MY-PORTFOLIO-REACT> && <MY-PORTFOLIO-REACT/Client>
+- **Navigate to the project directory:** cd `MY-PORTFOLIO-REACT` && `MY-PORTFOLIO-REACT/Client`
 - **Install dependencies:** `$ npm install`
 - **Create a .env file and add your email credentials and Logtail source token.**
 - **Start the development server:** `$ npm run dev`
@@ -41,7 +41,8 @@
 
 Remember to add your environment variables in a .env file for the server to function.
 
-<p>**Variables to add to your .env file**</p>
+**Variables to add to your .env file**
+
 - NODEMAILER_ENV_USER =**your email address**
 - NODEMAILER_ENV_PASS =**your email password**
   - I recommend the use of an app password. You can use this [document](https://support.google.com/mail/answer/185833?hl=en "document") as guidance.
@@ -55,12 +56,14 @@ Remember to add your environment variables in a .env file for the server to func
 In the future, we plan to host this on AWS detailing and documenting this process in a blog post.
 
 <h4>Additional Notes</h4>
+
 - **Responsiveness:** The website is designed to be responsive and work well on different screen sizes.
 - **Continuous Improvement:** I'm continuously improving and updating the website to enhance its functionality and design.
 - **Rate Limiting:** Limits requests to 5 requests within a 15-minute window to prevent abuse.
 - **Content Security Policy (CSP):** Sets a strict CSP to mitigate XSS attacks by specifying allowed sources for scripts, images, and styles.
 - **Logging:** Utilizes Winston and Logtail for centralized logging of server activities.
 - **Error Handling:** Returns appropriate HTTP status codes and error messages for invalid requests or server errors.
+
 <br/>
 <p>Credits</p>
 <p>Author: Oscar Mendoza</p>
