@@ -1,0 +1,12 @@
+.project-details {
+  margin-top: 20px;
+}
+
+.project-details h2 {
+  font-size: 2rem;
+}
+
+.project-details p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}

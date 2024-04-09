@@ -1,0 +1,86 @@
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: opacity 0.5s ease;
+  @media (max-width: 768px) {
+    padding: 0.5rem 0;
+  }
+}
+
+.header.sticky {
+  opacity: 0.8;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 5.5rem;
+  height: auto;
+}
+
+.hamburger-react {
+  display: none;
+  position: absolute;
+  top: 70%;
+  right: 20px;
+  width: 30px;
+  height: auto;
+  z-index: 999;
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.nav-links {
+  top: 100%;
+  right: 0;
+  background-color: #333;
+  transition: transform 0.2s ease;
+  opacity: 0.8;
+  @media (max-width: 768px) {
+    transform: translateX(1000%);
+    flex-direction: column;
+    display: flex;
+    position: absolute;
+  }
+}
+
+.nav-links.open {
+  width: 100%;
+  text-align: center;
+  background-color: #333;
+  transform: translateX(0);
+  transition: transform 0.5s ease;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+  font-style: italic;
+  opacity: 1;
+}
+
+.active {
+  opacity: 1;
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: #222;
+}

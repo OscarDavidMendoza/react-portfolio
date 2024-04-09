@@ -1,0 +1,76 @@
+.aboutPage-container {
+  padding: 2rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aboutPage-container a {
+  text-decoration: none;
+}
+
+.aboutPage-container h2,
+.aboutPage-container p,
+.aboutPage-container .contact-icons {
+  padding-bottom: 3rem;
+  margin: 0;
+}
+
+.aboutPage-container .contact-icons {
+  display: flex;
+  justify-content: space-between; /* Distribute icons evenly */
+  width: 25%;
+}
+
+.aboutPage-container .social-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: width 0.3s ease-in-out; /* Hover animation */
+  transition: border-radius 0.05s ease-in-out; /* Hover animation */
+}
+
+.aboutPage-container .social-icon-container:hover {
+  width: 200px;
+  border-radius: 20px;
+}
+
+.aboutPage-container .icon {
+  font-size: 24px;
+  color: #ddd;
+  transition: color 0.2s ease-in-out;
+}
+
+.aboutPage-container .social-icon-container:hover .icon {
+  color: #000; /* Change icon color on hover */
+}
+
+.aboutPage-container .icon-text {
+  display: none; /* Initially hide the text */
+  margin-left: 8px;
+  color: #ddd;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.aboutPage-container
+  .social-icon-container:hover
+  .icon-text {
+  display: block; /* Show text on hover */
+  opacity: 1;
+}
+
+.aboutPage-container .contact-icons a[href^="https://github.com"] .social-icon-container:hover,
+.aboutPage-container .contact-icons a[href^="https://github.com"] .social-icon-container:hover .icon-text
+{
+  background-color: #ddd;
+  color: #222;
+}
+
+.contact-icons a[href^="https://www.instagram.com"] .social-icon-container:hover .icon-text
+{
+  color: #000;
+}

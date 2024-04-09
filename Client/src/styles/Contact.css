@@ -1,0 +1,101 @@
+/* Contact.css */
+
+.contact {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  margin: 2rem 0 0;
+}
+
+.contact h2 {
+  margin-bottom: 20px;
+}
+
+.contact-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5rem;
+  width: 100%;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+}
+
+.contact-container img,
+.form-container {
+  width: 50%;
+}
+
+.contact-container img {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.contact-image {
+  mix-blend-mode: multiply;
+}
+
+.form-container {
+  display: flex;
+  column-gap: 2rem;
+  padding: 1rem;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.mailing-form {
+  width: 100%;
+  margin: 0 auto;
+  /* border: 1px solid #e0e0e0;
+  border-radius: 5px; */
+}
+
+/* Form group styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Label styles */
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Input styles */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Textarea styles */
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Button styles */
+.mailing-form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 50px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.mailing-form button:hover {
+  background-color: #0056b3;
+}
