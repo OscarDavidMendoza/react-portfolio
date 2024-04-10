@@ -9,6 +9,8 @@ const { LogtailTransport } = require("@logtail/winston");
 const validator = require("validator");
 const helmet = require("helmet");
 const escape = require("escape-html");
+const path = require("path");
+const fs = require("fs");
 require("dotenv").config();
 
 // Load email credentials from environment variables
@@ -46,6 +48,13 @@ function isValidEmail(email) {
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 5,
+  message:
+    "Too many requests from this IP, please try again later.",
+});
+
+const resumeLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 2,
   message:
     "Too many requests from this IP, please try again later.",
 });
@@ -127,6 +136,44 @@ app.post("/send-email", limiter, (req, res) => {
       console.log("Email sent: " + info.response);
       res.status(200).send("Email sent successfully");
     }
+  });
+});
+
+// Serve static files including resume PDF
+app.use(
+  express.static(path.join(__dirname, "../Client"), {
+    setHeaders: (res, filePath) => {
+      if (filePath.endsWith("resume.pdf")) {
+        res.setHeader(
+          "Content-Disposition",
+          "attachment; filename=resume.pdf"
+        );
+      }
+    },
+  })
+);
+
+// Serve the resume PDF
+app.get("/download/resume", resumeLimiter, (req, res) => {
+  const resumePath = path.join(
+    __dirname,
+    "../Client/src/Assets/data/resume/resume.pdf"
+  );
+  console.log("Resume path:", resumePath);
+
+  // Validate file path
+  fs.access(resumePath, fs.constants.F_OK, (err) => {
+    if (err) {
+      logger.error("Resume not found", {
+        filePath: resumePath,
+      });
+      return res.status(404).send("Resume not found");
+    }
+    res.setHeader(
+      "Content-Disposition",
+      "attachment; filename=resume.pdf"
+    );
+    res.sendFile(resumePath);
   });
 });
 

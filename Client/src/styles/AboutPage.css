@@ -16,10 +16,26 @@
   margin: 0;
 }
 
+.resume-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.resume-button-container p {
+  padding-bottom: 0;
+}
+
 .aboutPage-container .contact-icons {
   display: flex;
   justify-content: space-between;
-  width: 25%;
+  align-items: center;
+  width: 30%;
+  margin-top: 2rem;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .aboutPage-container .social-icon-container {
@@ -30,7 +46,7 @@
   height: 50px;
   border-radius: 50%;
   transition: width 0.5s ease-in-out;
-  transition: border-radius 0.05s ease-in-out;
+  transition: border-radius 0.03s ease-in-out;
 }
 
 .aboutPage-container .social-icon-container:hover {
@@ -73,4 +89,12 @@
 .contact-icons a[href^="https://www.instagram.com"] .social-icon-container:hover .icon-text
 {
   color: #000;
+}
+
+.horizontal-line {
+  height: 2px;
+  color: #222;
+  background-color: #222;
+  width: 100%;
+  opacity: 0.5;
 }

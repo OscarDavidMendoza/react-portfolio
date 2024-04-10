@@ -2,6 +2,7 @@ import React from "react";
 import GitHubCalendar from "react-github-calendar";
 import "../styles/AboutPage.css";
 import SocialIcons from "../Components/SocialIcons";
+import ResumeButton from "../Components/ResumeButton";
 
 export default function AboutPage() {
   return (
@@ -25,6 +26,9 @@ export default function AboutPage() {
         engineer. I am passionate about continuous learning
         and driving innovation to deliver optimal results.
       </p>
+      <hr className="horizontal-line" />
+      <ResumeButton />
+      <hr className="horizontal-line" />
       <SocialIcons className="aboutPage-social" />
       <GitHubCalendar username="OscarDavidMendoza" />
     </div>
