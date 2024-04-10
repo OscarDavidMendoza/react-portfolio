@@ -11,7 +11,6 @@ import ProjectDetailsPage from "./Pages/ProjectDetailsPage";
 import AboutPage from "./Pages/AboutPage";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ResumeDownloadPage from "./Pages/ResumeDownloadPage";
 
 const App = () => {
   return (
@@ -24,10 +23,6 @@ const App = () => {
           <Route
             path="/projects/:projectId"
             element={<ProjectDetailsPage />}
-          />
-          <Route
-            path="/download/resume"
-            element={<ResumeDownloadPage />}
           />
         </Routes>
       </Layout>
