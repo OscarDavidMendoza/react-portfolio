@@ -5,7 +5,7 @@
   "description": "This is my webdev Portfolio",
   "main": "index.js",
   "scripts": {
-    "predeploy": "cd Client/ && npm run build",
+    "predeploy": "npm run build --prefix Client",
     "deploy": "gh-pages -d build",
     "start": "node Server/server.js",
     "server": "PORT=5001 nodemon Server/server.js",
