@@ -2,10 +2,11 @@
   "name": "my-portfolio-react",
   "version": "1.0.0",
   "homepage": "https://oscardavidmendoza.github.io/react-portfolio/",
+  "private": true,
   "description": "This is my webdev Portfolio",
   "main": "index.js",
   "scripts": {
-    "predeploy": "npm run build --prefix Client",
+    "predeploy": "npm run build --prefix Client --output-path ../",
     "deploy": "gh-pages -d build",
     "start": "node Server/server.js",
     "server": "PORT=5001 nodemon Server/server.js",
