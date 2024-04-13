@@ -11,6 +11,9 @@ const helmet = require("helmet");
 const escape = require("escape-html");
 const path = require("path");
 const fs = require("fs");
+const bcrypt = require("bcryptjs");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 require("dotenv").config();
 
 // Load email credentials from environment variables
@@ -21,6 +24,8 @@ const LOGTAIL_SOURCE_TOKEN =
   process.env.LOGTAIL_SOURCE_TOKEN;
 
 const app = express();
+
+//Logtail instructor
 const { combine, timestamp, json } = winston.format;
 const logtail = new Logtail(LOGTAIL_SOURCE_TOKEN);
 
@@ -38,6 +43,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors({ origin: "http://localhost:3001" }));
 app.use(helmet());
+app.use(passport.initialize());
 
 // Function to validate email format
 function isValidEmail(email) {
@@ -159,7 +165,6 @@ app.get("/download/resume", resumeLimiter, (req, res) => {
     __dirname,
     "../Client/src/Assets/data/resume/resume.pdf"
   );
-  console.log("Resume path:", resumePath);
 
   // Validate file path
   fs.access(resumePath, fs.constants.F_OK, (err) => {
@@ -176,6 +181,90 @@ app.get("/download/resume", resumeLimiter, (req, res) => {
     res.sendFile(resumePath);
   });
 });
+
+// Blog Data Starts Here
+
+// User Registration Endpoint
+app.post("/register", async (req, res) => {
+  try {
+    const { username, email, password } = req.body;
+
+    const existingUser = await User.findOne({
+      where: { email },
+    });
+    if (existingUser) {
+      return res
+        .status(400)
+        .json({ message: "Email already exists" });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = await User.create({
+      username,
+      email,
+      password: hashedPassword,
+    });
+
+    res
+      .status(201)
+      .json({ message: "User registered successfully" });
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ message: "Registration failed" });
+  }
+});
+
+// Login Endpoint with JWT Tokens
+passport.use(
+  new LocalStrategy((username, password, done) => {
+    User.findOne({ where: { username } })
+      .then((user) => {
+        if (!user) {
+          return done(null, false);
+        }
+        bcrypt.compare(
+          password,
+          user.password,
+          (err, result) => {
+            if (err) {
+              return done(err);
+            }
+            if (result) {
+              return done(null, user);
+            } else {
+              return done(null, false);
+            }
+          }
+        );
+      })
+      .catch((err) => done(err));
+  })
+);
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => {
+    done(err, user);
+  });
+});
+
+app.post(
+  "/login",
+  passport.authenticate("local"),
+  (req, res) => {
+    const user = req.user;
+    const token = jwt.sign(
+      { userId: user._id },
+      "yourSecretKey"
+    );
+    res.json({ message: "Login successful" });
+  }
+);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
