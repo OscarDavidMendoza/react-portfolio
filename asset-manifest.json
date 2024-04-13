@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.56c727e6.css",
+    "main.js": "/static/js/main.ee0a1bb2.js",
+    "static/js/453.6952d23f.chunk.js": "/static/js/453.6952d23f.chunk.js",
+    "static/media/portfolioPic.webp": "/static/media/portfolioPic.6c5b5337050b6d614883.webp",
+    "static/media/projectImg.png": "/static/media/projectImg.d77efc3cf09657f058dd.png",
+    "static/media/OCIF2023CA.png": "/static/media/OCIF2023CA.fa4f588e5613130dfce9.png",
+    "static/media/ocVectorNameWhite.png": "/static/media/ocVectorNameWhite.9d45dc7c73f9e90bcda5.png",
+    "static/media/react-bootstrap-carousel.eot": "/static/media/react-bootstrap-carousel.1a0fe919ea31a13740d3.eot",
+    "static/media/react-bootstrap-carousel.ttf": "/static/media/react-bootstrap-carousel.f41331129badd2b01fc7.ttf",
+    "static/media/react-bootstrap-carousel.woff": "/static/media/react-bootstrap-carousel.96e0693824065d5b7d56.woff",
+    "static/media/react-bootstrap-carousel.svg": "/static/media/react-bootstrap-carousel.190d0d1bf1c865be7a1b.svg",
+    "index.html": "/index.html",
+    "static/media/css.svg": "/static/media/css.db7dfd1247623e1e9223d8ef28a37432.svg",
+    "static/media/html.svg": "/static/media/html.a026abbb678246d70ee9b70e4aee972c.svg",
+    "main.56c727e6.css.map": "/static/css/main.56c727e6.css.map",
+    "main.ee0a1bb2.js.map": "/static/js/main.ee0a1bb2.js.map",
+    "453.6952d23f.chunk.js.map": "/static/js/453.6952d23f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.56c727e6.css",
+    "static/js/main.ee0a1bb2.js"
+  ]
+}
