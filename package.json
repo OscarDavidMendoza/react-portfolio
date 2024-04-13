@@ -6,7 +6,8 @@
   "description": "This is my webdev Portfolio",
   "main": "index.js",
   "scripts": {
-    "predeploy": "npm run build --prefix Client --output-path ../",
+    "predeploy": "npm run build --prefix Client",
+    "postbuild": "cp -r Client/build ../build",
     "deploy": "gh-pages -d build",
     "start": "node Server/server.js",
     "server": "PORT=5001 nodemon Server/server.js",
@@ -23,5 +24,8 @@
   },
   "dependencies": {
     "dompurify": "^3.1.0"
+  },
+  "directories": {
+    "doc": "docs"
   }
 }
