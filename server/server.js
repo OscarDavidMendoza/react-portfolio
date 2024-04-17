@@ -25,7 +25,7 @@ const LOGTAIL_SOURCE_TOKEN =
 const siteCaller = process.env.SITE_CALLER;
 
 const app = express();
-app.set("trust proxy", true);
+app.set("trust proxy", 1);
 
 //Logtail instructor
 const { combine, timestamp, json } = winston.format;
