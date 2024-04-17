@@ -84,7 +84,7 @@ app.use((req, res, next) => {
 });
 
 // POST route to handle form submission
-app.post("/send-email", limiter, (req, res) => {
+app.post("/api/send-email", limiter, (req, res) => {
   const { name, email, message } = req.body;
 
   // Log request body
@@ -149,6 +149,7 @@ app.post("/send-email", limiter, (req, res) => {
 
 // Serve static files including resume PDF
 app.use(
+  "api/",
   express.static(path.join(__dirname, "../Client"), {
     setHeaders: (res, filePath) => {
       if (filePath.endsWith("resume.pdf")) {
@@ -162,27 +163,31 @@ app.use(
 );
 
 // Serve the resume PDF
-app.get("/download/resume", resumeLimiter, (req, res) => {
-  const resumePath = path.join(
-    __dirname,
-    "../Client/src/Assets/data/resume/resume.pdf"
-  );
-
-  // Validate file path
-  fs.access(resumePath, fs.constants.F_OK, (err) => {
-    if (err) {
-      logger.error("Resume not found", {
-        filePath: resumePath,
-      });
-      return res.status(404).send("Resume not found");
-    }
-    res.setHeader(
-      "Content-Disposition",
-      "attachment; filename=resume.pdf"
+app.get(
+  "/api/download/resume",
+  resumeLimiter,
+  (req, res) => {
+    const resumePath = path.join(
+      __dirname,
+      "../Client/src/Assets/data/resume/resume.pdf"
     );
-    res.sendFile(resumePath);
-  });
-});
+
+    // Validate file path
+    fs.access(resumePath, fs.constants.F_OK, (err) => {
+      if (err) {
+        logger.error("Resume not found", {
+          filePath: resumePath,
+        });
+        return res.status(404).send("Resume not found");
+      }
+      res.setHeader(
+        "Content-Disposition",
+        "attachment; filename=resume.pdf"
+      );
+      res.sendFile(resumePath);
+    });
+  }
+);
 
 // Blog Data Starts Here
 
@@ -268,6 +273,4 @@ app.post(
   }
 );
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+module.exports = app;
