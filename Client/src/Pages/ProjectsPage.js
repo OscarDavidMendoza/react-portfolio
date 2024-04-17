@@ -33,6 +33,7 @@ export default function ProjectsPage() {
               <ImageListItemBar
                 title={project.title}
                 subtitle={project.summary}
+                className="project-item-details"
                 actionIcon={
                   <IconButton
                     sx={{

@@ -14,4 +14,9 @@
 .projects-container img {
   width: 248px;
   height: auto;
+  border-radius: 10px;
+}
+
+.project-item-details {
+  border-radius: 0 0 10px 10px;
 }

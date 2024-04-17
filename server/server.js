@@ -19,9 +19,10 @@ require("dotenv").config();
 // Load email credentials from environment variables
 const emailUser = process.env.NODEMAILER_ENV_USER;
 const emailPass = process.env.NODEMAILER_ENV_PASS;
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT;
 const LOGTAIL_SOURCE_TOKEN =
   process.env.LOGTAIL_SOURCE_TOKEN;
+const siteCaller = process.env.SITE_CALLER;
 
 const app = express();
 
@@ -41,7 +42,7 @@ const logger = winston.createLogger({
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors({ origin: "http://localhost:3001" }));
+app.use(cors({ origin: siteCaller }));
 app.use(helmet());
 app.use(passport.initialize());
 

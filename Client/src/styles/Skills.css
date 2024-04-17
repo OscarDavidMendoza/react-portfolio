@@ -16,7 +16,7 @@
   flex-wrap: wrap;
   @media (max-width: 768px) {
     justify-content: center;
-    flex-direction: column;
+    flex-basis: 200;
     align-items: center;
   }
 }
@@ -29,9 +29,6 @@
   width: 114px;
   height: 7rem;
   object-fit: cover;
-  @media (max-width: 768px) {
-    display: none;
-  }
 }
 
 .skill-container a,

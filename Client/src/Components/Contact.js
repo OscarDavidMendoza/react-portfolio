@@ -4,6 +4,8 @@ import DOMpurify from "dompurify";
 import contactMe from "../Assets/images/contactMe.jpeg";
 import "../styles/Contact.css";
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 const Contact = () => {
   const {
     register,
@@ -20,7 +22,7 @@ const Contact = () => {
         message: DOMpurify.sanitize(data.message),
       };
       const response = await fetch(
-        "http://localhost:5001/send-email",
+        `${BACKEND_URL}/send-email`,
         {
           method: "POST",
           headers: {
