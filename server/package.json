@@ -20,8 +20,8 @@
     "winston": "^3.13.0"
   },
   "scripts": {
-    "start": "node server.js",
-    "server": "PORT=5001 nodemon server/server.js",
+    "start": "node index.js",
+    "server": "PORT=5001 nodemon server/index.js",
     "client": "PORT=3001 npm start --prefix Client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   }

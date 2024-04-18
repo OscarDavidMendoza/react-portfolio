@@ -1,14 +1,9 @@
 {
-  "routes": [
+  "version": 2,
+  "build": [
     {
-      "src": "/api/send-email",
-      "dest": "api/send-email.js"
-    },
-    {
-      "src": "/api/download-resume",
-      "dest": "api/download-resume.js"
-    },
-    { "src": "/api/register", "dest": "api/register.js" },
-    { "src": "/api/login", "dest": "api/login.js" }
+      "src": "*.js",
+      "destination": "/"
+    }
   ]
 }

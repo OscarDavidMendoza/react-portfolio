@@ -19,7 +19,7 @@ require("dotenv").config();
 // Load email credentials from environment variables
 const emailUser = process.env.NODEMAILER_ENV_USER;
 const emailPass = process.env.NODEMAILER_ENV_PASS;
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5001;
 const LOGTAIL_SOURCE_TOKEN =
   process.env.LOGTAIL_SOURCE_TOKEN;
 const siteCaller = process.env.SITE_CALLER;
@@ -274,25 +274,26 @@ app.post(
 );
 
 // Start the Express server (optional if running locally)
-// app.listen(PORT, () => {
-//   console.log(`Server running on port ${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
-module.exports = app;
+// USED FOR LAMBDA
+// module.exports = app;
 
-// Lambda handler function
-module.exports.handler = async (event, context) => {
-  // Create a promise to handle the Express app's response
-  return new Promise((resolve, reject) => {
-    // Pass the event and context to Express app's handler
-    app(event, context, (error, result) => {
-      // If there's an error, reject the promise
-      if (error) {
-        reject(error);
-        return;
-      }
-      // If successful, resolve the promise with the result
-      resolve(result);
-    });
-  });
-};
+// // Lambda handler function
+// module.exports.handler = async (event, context) => {
+//   // Create a promise to handle the Express app's response
+//   return new Promise((resolve, reject) => {
+//     // Pass the event and context to Express app's handler
+//     app(event, context, (error, result) => {
+//       // If there's an error, reject the promise
+//       if (error) {
+//         reject(error);
+//         return;
+//       }
+//       // If successful, resolve the promise with the result
+//       resolve(result);
+//     });
+//   });
+// };

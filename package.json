@@ -9,8 +9,8 @@
     "predeploy": "npm run build --prefix Client",
     "postbuild": "cp -r Client/build ../build",
     "deploy": "gh-pages -d build",
-    "start": "node Server/server.js",
-    "server": "PORT=5001 nodemon Server/server.js",
+    "start": "node Server/index.js",
+    "server": "PORT=5001 nodemon Server/index.js",
     "client": "PORT=3001 npm start --prefix Client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
