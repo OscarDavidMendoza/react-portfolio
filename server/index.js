@@ -85,6 +85,20 @@ app.use((req, res, next) => {
   next();
 });
 
+// Handle OPTIONS requests for the /send-email endpoint
+app.options("/send-email", (req, res) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://www.oscarcodes.dev"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "POST");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Content-Type"
+  );
+  res.sendStatus(200);
+});
+
 // POST route to handle form submission
 app.post("/send-email", limiter, (req, res) => {
   const { name, email, message } = req.body;
