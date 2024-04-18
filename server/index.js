@@ -22,7 +22,10 @@ const emailPass = process.env.NODEMAILER_ENV_PASS;
 const PORT = process.env.PORT || 5001;
 const LOGTAIL_SOURCE_TOKEN =
   process.env.LOGTAIL_SOURCE_TOKEN;
-const siteCaller = process.env.SITE_CALLER;
+const allowOrigin =
+  process.env.SITE_CALLER ||
+  "https://react-portfolio-two-ecru.vercel.app/";
+const corsOptions = { origin: allowOrigin };
 
 const app = express();
 
@@ -42,7 +45,7 @@ const logger = winston.createLogger({
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors({ origin: siteCaller }));
+app.use(cors(corsOptions));
 app.use(helmet());
 app.use(passport.initialize());
 
