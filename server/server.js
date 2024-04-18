@@ -273,4 +273,26 @@ app.post(
   }
 );
 
+// Start the Express server (optional if running locally)
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
+
 module.exports = app;
+
+// Lambda handler function
+module.exports.handler = async (event, context) => {
+  // Create a promise to handle the Express app's response
+  return new Promise((resolve, reject) => {
+    // Pass the event and context to Express app's handler
+    app(event, context, (error, result) => {
+      // If there's an error, reject the promise
+      if (error) {
+        reject(error);
+        return;
+      }
+      // If successful, resolve the promise with the result
+      resolve(result);
+    });
+  });
+};
